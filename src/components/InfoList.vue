@@ -1,6 +1,6 @@
 <template>
   <div>
-    <InfoListItem :dataObj="item" :dataIndex="index" :updateDataCallback="updateObjByIndex" v-for="(item,index) in infoList"></InfoListItem>
+    <InfoListItem :dataObj="item" :dataIndex="index" :updateDataCallback="updateObjByIndex" v-for="(item,index) in infoList" :key="item"></InfoListItem>
   </div>
 </template>
 

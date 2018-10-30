@@ -2,12 +2,16 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
 module.exports = {
+  plugins:[
+      new VueLoaderPlugin()
+  ],
   entry: {
     app: './src/main.js'
   },
@@ -35,6 +39,9 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
+          options:{
+            plugins:['@babel/plugin-proposal-object-rest-spread']
+          },
         include: [resolve('src'), resolve('test')]
       },
       {
